@@ -9,6 +9,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.tooling.preview.Preview
 import com.example.myapp.composable.AppNav
 import com.example.myapp.screens.LoginApp
+import com.example.myapp.utils.RegisterHelper
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -16,6 +17,7 @@ class MainActivity : ComponentActivity() {
         enableEdgeToEdge()
         setContent {
             MaterialTheme {
+                RegisterHelper.guardarRegistro("Kevin Molina", "tu@correo.cl", "123")
                 AppNav()
             }
         }
@@ -25,5 +27,5 @@ class MainActivity : ComponentActivity() {
 @Preview
 @Composable
 fun PreviewApp() {
-    LoginApp(onGoForgot = {}, onGoRegister = {})
+    LoginApp(onGoForgot = {}, onGoRegister = {}, onLoginSuccess = {})
 }
